@@ -9,6 +9,7 @@ interface Group {
 
 @Injectable()
 export class GroupService {
+  groups = [];
 
   constructor(
     private http: HttpClient
@@ -17,5 +18,13 @@ export class GroupService {
   getGroups(): Promise<Group[]> {
     return this.http.get<Group[]>(environment.endpoint.groups)
       .toPromise();
+  }
+
+  setGroups(list) {
+    this.groups = list;
+  }
+
+  getStoredGroups() {
+    return this.groups;
   }
 }
