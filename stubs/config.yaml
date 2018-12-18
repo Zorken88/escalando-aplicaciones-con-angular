@@ -52,7 +52,27 @@
     method: GET
   response:
     status: 200
-    latency: 10000
+    latency: 1000
     headers:
       content-type: application/json
     file: ./groups.json
+
+    - request:
+    url: ^/auth-service/v1/create$
+    method: GET
+  response:
+    status: 200
+    latency: 1000
+    headers:
+      content-type: application/json
+    file: ./create.json
+
+    - request:
+    url: ^/auth-service/v1/index$
+    method: GET
+  response:
+    status: 200
+    latency: 1000
+    headers:
+      content-type: application/json
+    file: ./index.json
